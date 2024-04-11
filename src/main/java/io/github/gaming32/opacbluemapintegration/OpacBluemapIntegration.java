@@ -18,6 +18,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.arguments.TimeArgument;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
@@ -68,7 +69,7 @@ public class OpacBluemapIntegration implements ModInitializer {
                         }
                         updateClaims(api);
                         ctx.getSource().sendSuccess(
-                            Component.literal("BlueMap OPaC claims refreshed").withStyle(ChatFormatting.GREEN),
+                                () -> Component.literal("BlueMap OPaC claims refreshed").withStyle(ChatFormatting.GREEN),
                             true
                         );
                         return Command.SINGLE_SUCCESS;
@@ -76,9 +77,8 @@ public class OpacBluemapIntegration implements ModInitializer {
                 )
                 .then(literal("refresh-in")
                     .executes(ctx -> {
-                        ctx.getSource().sendSuccess(
-                            Component.literal("OPaC BlueMap will refresh in ").append(
-                                Component.literal((updateIn / 20) + "s").withStyle(ChatFormatting.GREEN)
+                        ctx.getSource().sendSuccess(() -> Component.literal("OPaC BlueMap will refresh in ").append(
+                                    Component.literal((updateIn / 20) + "s").withStyle(ChatFormatting.GREEN)
                             ),
                             true
                         );
@@ -88,7 +88,7 @@ public class OpacBluemapIntegration implements ModInitializer {
                         .executes(ctx -> {
                             updateIn = IntegerArgumentType.getInteger(ctx, "time");
                             ctx.getSource().sendSuccess(
-                                Component.literal("OPaC BlueMap will refresh in ").append(
+                                    () -> Component.literal("OPaC BlueMap will refresh in ").append(
                                     Component.literal((updateIn / 20) + "s").withStyle(ChatFormatting.GREEN)
                                 ),
                                 true
@@ -100,7 +100,7 @@ public class OpacBluemapIntegration implements ModInitializer {
                 .then(literal("refresh-every")
                     .executes(ctx -> {
                         ctx.getSource().sendSuccess(
-                            Component.literal("OPaC BlueMap auto refreshes every ").append(
+                                () -> Component.literal("OPaC BlueMap auto refreshes every ").append(
                                 Component.literal((CONFIG.getUpdateInterval() / 20) + "s").withStyle(ChatFormatting.GREEN)
                             ),
                             true
@@ -116,7 +116,7 @@ public class OpacBluemapIntegration implements ModInitializer {
                             }
                             saveConfig();
                             ctx.getSource().sendSuccess(
-                                Component.literal("OPaC BlueMap will auto refresh every ").append(
+                                    () -> Component.literal("OPaC BlueMap will auto refresh every ").append(
                                     Component.literal((interval / 20) + "s").withStyle(ChatFormatting.GREEN)
                                 ),
                                 true
@@ -132,7 +132,7 @@ public class OpacBluemapIntegration implements ModInitializer {
                             updateIn = CONFIG.getUpdateInterval();
                         }
                         ctx.getSource().sendSuccess(
-                            Component.literal("Reloaded OPaC BlueMap config").withStyle(ChatFormatting.GREEN),
+                                () -> Component.literal("Reloaded OPaC BlueMap config").withStyle(ChatFormatting.GREEN),
                             true
                         );
                         return Command.SINGLE_SUCCESS;
@@ -190,8 +190,7 @@ public class OpacBluemapIntegration implements ModInitializer {
                 }
                 final String displayName = name;
                 playerClaimInfo.getStream().forEach(entry -> {
-                    final BlueMapWorld world = blueMap.getWorld(ResourceKey.create(Registry.DIMENSION_REGISTRY, entry.getKey())).orElse(null);
-                    if (world == null) return;
+                    final BlueMapWorld world = blueMap.getWorld(ResourceKey.create(Registries.DIMENSION, entry.getKey())).orElse(null);                    if (world == null) return;
                     final List<ShapeHolder> shapes = createShapes(
                         entry.getValue()
                             .getStream()

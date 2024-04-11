@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.2-SNAPSHOT'
+    id 'fabric-loom' version '1.6-SNAPSHOT'
     id 'io.github.juuxel.loom-quiltflower' version '1.8.0'
     id 'maven-publish'
 }
@@ -32,6 +32,8 @@ repositories {
         }
     }
 
+    maven { url 'https://repo.bluecolored.de/releases' }
+
     maven { url = "https://jitpack.io" }
 }
 
@@ -40,21 +42,21 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings(loom.layered {
         officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-1.19.2:2022.11.27@zip")
+        parchment("org.parchmentmc.data:parchment-1.20.1:2023.09.03@zip")
     })
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation("maven.modrinth:open-parties-and-claims:fabric-1.19.2-0.17.6")
-    modRuntimeOnly("net.minecraftforge:forgeconfigapiport-fabric:4.2.11") {
+    modImplementation("maven.modrinth:open-parties-and-claims:fabric-1.20.1-0.22.0")
+    modRuntimeOnly("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:8.0.0") {
         exclude(group: "net.fabricmc")
         exclude(group: "net.fabricmc.fabric-api")
     }
 
-    implementation("com.github.BlueMap-Minecraft:BlueMapAPI:v2.5.0")
-    modRuntimeOnly("maven.modrinth:bluemap:3.13-fabric-1.19")
+    implementation("de.bluecolored.bluemap:BlueMapAPI:2.7.1")
+    modRuntimeOnly("maven.modrinth:bluemap:3.20-fabric-1.20")
 
     include(implementation("org.quiltmc.qup:json:0.2.0"))
 }
