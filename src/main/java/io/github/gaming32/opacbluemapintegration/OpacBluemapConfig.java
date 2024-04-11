@@ -21,7 +21,7 @@ public class OpacBluemapConfig {
                 case "markerMaxY" -> markerMaxY = reader.nextNumber().floatValue();
                 case "depthTest" -> depthTest = reader.nextBoolean();
                 default -> {
-                    OpacBluemapIntegration.LOGGER.warn("Unknown OPaC BlueMap config key {}. Skipping.", key);
+                    OpacBluemapIntegration.LOGGER.warn("Unknown OpenPaC BlueMap config key {}. Skipping.", key);
                     reader.skipValue();
                 }
             }

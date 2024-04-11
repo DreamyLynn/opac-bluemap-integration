@@ -1,14 +1,15 @@
 {
   "schemaVersion": 1,
-  "id": "opac-bluemap-integration",
+  "id": "openpac-bluemap-integration-remapped",
   "version": "${version}",
-  "name": "OPaC BlueMap",
+  "name": "OpenPaC BlueMap Remapped",
   "description": "Syncs your Open Parties and Claims land claims to your BlueMap maps",
   "authors": [
-    "Gaming32"
+    "Gaming32",
+    "DreamyLynn"
   ],
   "contact": {
-    "repo": "https://github.com/Gaming32/opac-bluemap-integration"
+    "repo": "https://github.com/DreamyLynn/opac-bluemap-integration"
   },
   "license": "MIT",
   "icon": "assets/opac-bluemap-integration/icon.png",
