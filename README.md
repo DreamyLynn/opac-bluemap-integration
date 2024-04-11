@@ -1,6 +1,10 @@
-# OPaC BlueMap
+# OpenPaC BlueMap - Remapped
 
-This mod will show land claims from the [Open Parties and Claims](https://modrinth.com/mod/open-parties-and-claims) mod in the maps from the [BlueMap](https://modrinth.com/mod/bluemap) mod. This has currently only been tested on 1.19.2, but may work on newer versions.
+This mod will show land claims from the [Open Parties and Claims](https://modrinth.com/mod/open-parties-and-claims) mod in the maps from the [BlueMap](https://modrinth.com/mod/bluemap) mod.
+
+# Will you support \<Version\>?
+
+Probably, please open an issue.
 
 ## Usage
 
