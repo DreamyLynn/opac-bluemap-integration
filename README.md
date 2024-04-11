@@ -2,7 +2,7 @@
 
 This mod will show land claims from the [Open Parties and Claims](https://modrinth.com/mod/open-parties-and-claims) mod in the maps from the [BlueMap](https://modrinth.com/mod/bluemap) mod.
 
-# Will you support \<Version\>?
+## Will you support \<Version\>?
 
 Probably, please open an issue.
 
