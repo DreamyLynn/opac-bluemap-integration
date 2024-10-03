@@ -55,7 +55,7 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
 
-    implementation("de.bluecolored.bluemap:BlueMapAPI:2.7.2")
+    implementation(de.bluecolored:bluemap-api:2.7.3")
     modRuntimeOnly("maven.modrinth:bluemap:5.2-fabric-1.21")
 
     include(implementation("org.quiltmc.qup:json:0.2.0"))
