@@ -216,7 +216,7 @@ public class OpacBluemapIntegration implements ModInitializer {
                                 flatPlane
                                     ? ShapeMarker.builder()
                                         .label(displayName)
-                                        .fillColor(new Color(playerClaimInfo.getClaimsColor(), 150))
+                                        .fillColor(new Color(playerClaimInfo.getClaimsColor(), 102))
                                         .lineColor(new Color(playerClaimInfo.getClaimsColor(), 255))
                                         .shape(shape.baseShape(), minY)
                                         .holes(shape.holes())
@@ -224,7 +224,7 @@ public class OpacBluemapIntegration implements ModInitializer {
                                         .build()
                                     : ExtrudeMarker.builder()
                                         .label(displayName)
-                                        .fillColor(new Color(playerClaimInfo.getClaimsColor(), 150))
+                                        .fillColor(new Color(playerClaimInfo.getClaimsColor(), 102))
                                         .lineColor(new Color(playerClaimInfo.getClaimsColor(), 255))
                                         .shape(shape.baseShape(), minY, maxY)
                                         .holes(shape.holes())
