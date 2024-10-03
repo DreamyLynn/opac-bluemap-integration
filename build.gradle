@@ -49,14 +49,14 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation("maven.modrinth:open-parties-and-claims:fabric-1.21-0.23.2")
+    modImplementation("maven.modrinth:open-parties-and-claims:fabric-1.21-0.23.1")
     modRuntimeOnly("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:8.0.0") {
         exclude(group: "net.fabricmc")
         exclude(group: "net.fabricmc.fabric-api")
     }
 
-    implementation("de.bluecolored.bluemap:BlueMapAPI:2.7.2")
-    modRuntimeOnly("maven.modrinth:bluemap:5.4-fabric-1.21")
+    implementation("de.bluecolored.bluemap:BlueMapAPI:2.7.3")
+    modRuntimeOnly("maven.modrinth:bluemap:5.2-fabric-1.21")
 
     include(implementation("org.quiltmc.qup:json:0.2.0"))
 }
